@@ -1,5 +1,5 @@
-title:            Rajanand
-description:      Trying to share stuff.
+title:            Raj Anand
+description:      Learing Rails, exploring Vim, supporting GNU/Linux and trying to share stuffs.
 logo:             profile_pic.jpg
 disqus_shortname: 
 search:           true
@@ -8,16 +8,16 @@ url:              http://localhost:4000
 
 # Owner/author information
 owner:
-  name:           Rajanand 
+  name:           Your Name
   avatar:         bio-photo.jpg
-  email:          rajanand0202@email.com
+  email:          you@email.com
   # Social networking links used in footer. Update and remove as you like.
   twitter:        
-  facebook:      anandaraj02  
-  github:       rajanand02 
+  facebook:       
+  github:         
   stackexchange:  
   linkedin:       
-  instagram:     
+  instagram:      
   flickr:         
   tumblr:         
   # For Google Authorship https://plus.google.com/authorship
@@ -39,7 +39,7 @@ links:
   - title: Theme Setup
     url: /theme-setup
   - title: Made Mistakes
-    url: 
+    url: http://mademistakes.com
     external: true
 
 # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
