@@ -1,4 +1,3 @@
-rajanand02.github.io
+Creating a blog with jekyll
 ====================
 
-Exploring jekyll----
