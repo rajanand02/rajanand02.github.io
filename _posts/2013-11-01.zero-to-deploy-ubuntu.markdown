@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Zero to deploy in Ubuntu"
+title: "Stay tuned for meteor hacks.."
 date: 2013-11-10 21:07:08
 categories: posts update
 ---
