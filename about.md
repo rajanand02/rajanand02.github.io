@@ -10,7 +10,8 @@ image:
 ---
 <!--Looking for a simple, responsive, theme for your Jekyll powered blog? Well look no further. Here be **So Simple Theme**, the followup to [**Minimal Mistakes**](http://mmistakes.github.io/minimal-mistakes) --- by designer slash illustrator [Michael Rose](http://mademistakes).-->
 
-<!--## So Simple Theme is all about:-->
+<!--## Lets keep it simple-->
+<!--i don't have any great story to tell as the quote mentioned above so lets keep it simple..-->
 
 <!--* Responsive templates. Looking good on mobile, tablet, and desktop.-->
 <!--* Gracefully degrading in older browsers. Compatible with Internet Explorer 9+ and all modern browsers.-->

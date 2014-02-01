@@ -1,0 +1,13 @@
+---
+layout: post
+title: "Zero to deploy in Ubuntu"
+date: 2013-11-10 21:07:08
+categories: posts update
+---
+<!--Every one enjoy trying different GNU/Linux distros but everytime you install a new distro atleast it would take half a day to make the os ready to start working in your project..
+
+This also applies when a new version of your os released and you are dieing to switch but worried about going through all those shitty installations.
+
+i always have this problem being a distro hopper..i have to search for all installations,tuneing and tweaking stuffs over intertet to make everything works the way i want and i don't really enjoy this part as i enjoy installing the os..
+Even i tried to write some scripts to make the installaing quick and easy but still i have to search around for other stuffs like configuring vim,zsh and installing required applications etc so i have decided to document all my installations steps to make things easier when i trying an another new operating system and at the same time i don't want to keep it only for my reference so here i am...
+
