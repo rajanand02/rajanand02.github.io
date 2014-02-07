@@ -1,0 +1,9 @@
+#octocard .octocard-m-base{
+  background-color: black;
+}
+#octocard .octocard-m-base span, #octocard .octocard-m-base h1{
+  color: white;
+}
+#octocard .octocard-m-base span{
+  color:white;
+}
