@@ -3,7 +3,7 @@ layout: post
 title: "Ubuntu-Zero To Deploy"
 description: "A ton of text to test readability."
 category: posts update
-tags: [sample post, readability, test, intro]
+tags: [Ubuntu, Terminator]
 image:
   feature: b.png
 comments: true
@@ -32,5 +32,45 @@ Terminator is a terminal emulator that has so may cool feature like multiple ses
 * `Ctrl+Shift+N` - Focus the view on next pane.
 * `Ctrl+Shift+Q` - Quit Terminator. 
 
+##### Terminator-Solarized Color Scheme
 
+{% raw %}
+    [global_config]
+      title_transmit_bg_color = "#d30102"
+      focus = system
+    [keybindings]
+    [profiles]
+      [[default]]
+        # solarized-dark
+        palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
+        foreground_color = "#eee8d5"
+        background_color = "#002b36"
+        cursor_color = "#eee8d5"
 
+    [[solarized-dark]]
+       palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
+       foreground_color = "#eee8d5"
+       background_color = "#002b36"
+       cursor_color = "#eee8d5"
+
+    [[solarized-light]]
+       #palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
+       #background_color = "#eee8d5"
+       #foreground_color = "#002b36"
+       #cursor_color = "#002b36"
+
+    [layouts]
+      [[default]]
+       [[[child1]]]
+         type = Terminal
+         parent = window0
+         profile = solarized-dark
+       [[[window0]]]
+        type = Window
+        parent = ""
+        size = 800, 600
+    [plugins]
+
+{% endraw %}
+
+--- refer the code in [github](https://github.com/ghuntley/terminator-solarized)
