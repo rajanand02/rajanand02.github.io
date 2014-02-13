@@ -2,7 +2,7 @@
 layout: post
 title: "Ubuntu-Zero To Deploy"
 description: "A ton of text to test readability."
-category: posts update
+category: articles
 tags: [Ubuntu, Terminator]
 image:
   feature: b.png
@@ -33,7 +33,8 @@ Terminator is a terminal emulator that has so may cool feature like multiple ses
 * `Ctrl+Shift+Q` - Quit Terminator. 
 
 ##### Terminator-Solarized Color Scheme
-
+copy the following code to
+  `~/.config/terminator/config`
 {% raw %}
     [global_config]
       title_transmit_bg_color = "#d30102"
