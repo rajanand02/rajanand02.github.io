@@ -10,7 +10,9 @@ image:
 comments: true
 share: true
 ---
+* * *
 {% include series.html %}
+* * *
 
 Being a distro hopper i switch distros often and i really enjoy it but the main problems are installing all the required applications,setting up the work environment,configure my editor etc..i have to spend at-least half a day to make it work the way i wanted..
 
@@ -19,11 +21,13 @@ It was fine when i tried to hack around all the distros back in my college days 
 #### Terminator
     
 The first thing i always install in my fresh Ubuntu is [Terminator](https://launchpad.net/terminator)..
-Terminator is a terminal emulator that has so may cool feature like multiple session in a single tab..
+Terminator is a terminal emulator that has so may cool features like multiple session in a single tab..
 <figure>
-  <img src="/images/Terminator.png"></a>
+  <img src="/images/terminator.gif"></a>
   <figcaption><a href="http://github.com/rajanand02" title="Terminator the awesome terminal emulator"></a>Terminator the awesome terminal-emulator.</figcaption>
 </figure>
+
+You can edit your code, commit your changes in git, run server and execute shell commands inside a single tab..
 
 ##### Some useful shortcuts
 * `Ctrl+Shift+E` - Split the view Vertically.
