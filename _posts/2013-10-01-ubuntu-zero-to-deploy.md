@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Ubuntu-Zero To Deploy"
-description: "A ton of text to test readability."
+description: "configure ubuntu from scratch"
 series: ubuntu-zero-to-deploy
 category: articles
 tags: [Ubuntu, Terminator]
@@ -81,4 +81,4 @@ copy the following code to
 
 {% endraw %}
 
---- refer the code in [github](https://github.com/ghuntley/terminator-solarized)
+> refer the code in [github](https://github.com/ghuntley/terminator-solarized)
