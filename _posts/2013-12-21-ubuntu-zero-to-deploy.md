@@ -6,7 +6,7 @@ series: ubuntu-zero-to-deploy
 category: articles
 tags: [Ubuntu, Terminator]
 image:
-  feature: b.png
+  feature: ubuntu.png
 comments: true
 share: true
 ---
