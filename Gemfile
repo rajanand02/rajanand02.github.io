@@ -7,3 +7,7 @@ gem 'rake'
 gem 'thor'
 gem 'activesupport'
 gem 'stringex'
+group :development do
+  gem 'guard'
+  gem 'guard-livereload', require: false
+end

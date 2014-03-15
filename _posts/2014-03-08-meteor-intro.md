@@ -37,11 +37,11 @@ In Client/Server model the server performs almost all the operations on data and
 </figure>
 
 #### MVC(Model View Controller)
-If your familiar with frame works like Rails or Django you probably know MVC pattern..In MVC
+If you are familiar with frame works like Rails or Django you probably know MVC pattern..In MVC
 
-* Model Contains all the data 
-  * Controller talks with model, perform the logic/actions and prepare the data to be displayed and finally 
-* View display the content and report back to the controller when something happens on the screen(button click, form submission etc..)
+* Model - Contains all the data. 
+* Controller - talks with model, perform the logic/actions and prepare the data to be displayed.
+* View - display the content and report back to the controller when something happens on the screen(button click, form submission etc..)
 
 <figure>
    <a href= "http://github.com/rajanand02">
@@ -50,12 +50,39 @@ If your familiar with frame works like Rails or Django you probably know MVC pat
   <figcaption><a href="http://github.com/rajanand02" title="client/server model"></a>MVC pattern.</figcaption>
 </figure>
 
-#### MVVM
-
-
+#### MVVM in Meteor
+  As the browser technologies improved drastically developers started to enhance the concept of MVC to bring in MVVM pattern(Nested mvc)..In MVVM the sever side controller performs the business logic/operations on the database(model) and then send the result set(view) to the client..The client which receives the result set(server-view) consider it as its own model and performs the logic required to present the content and finally view is used to display the information on the screen..
 
 <figure>
-  <a href= "http://github.com/rajanand02">
+  <a href= "http://github.com/rajanand02" target="_blank">
     <img src="/images/mvvm.png">
    </a>
-<figcaption><a href="http://github.com/rajanand02" title="client/server model"></a>MVC pattern.</figcaption>
+<figcaption><a href="http://github.com/rajanand02" title="client/server model"></a>
+ Meteor does not strictly follow any pattern but based on the way it works <a href= "http://www.packtpub.com/authors/profiles/isaac-strack" target="_blank">Issac Strack</a> suggesting MVVM model in his book <a href="http://www.packtpub.com/getting-started-with-meteor-javascript-framework/book" target="_blank">Getting started with Meteor.js JavaScript Framework</a></figcaption>
+</figure>
+
+
+### Seven Principles of Meteor
+In the Meteor official <a href="http://docs.meteor.com/">documention</a> they have listed out the following <a href="http://docs.meteor.com/#sevenprinciples">7 principles</a>
+
+##### 1.Data on the wire
+The only thing that traverse between the server and client after the initial page load in **data**.. Meteor loads all the html,css and other static assets in the initial page load after that it sends only the data to the client and let the client decide how to render the data.
+
+##### 2.One Language
+Meteor uses only JavaScript for both client and server side operations..This can be achieved in meteor because it is built on top of NodeJs and it uses MongoDB as default database...
+
+##### 3.Datebase Everywhere
+As default Meteor allows you to access the entire database from your client..You might think that it will lead to some serious security issues where any user can delete or modify other uses's details but this is just a default state while creating your application so that you can get the app up and ready in matter of minutes after which you can restrict the access to the database..Accessing the database from client side is achieved by using minimongo(Meteor's client-side Mongo emulator).
+
+##### 4.Latency Compensation
+Since database is available at client side whenever the user  do any activity(button click,form submission etc..) the result will be updated immediately in UI even before it receives confirmation from the server, this makes your application instantaneous and more responsive..However if the user is not permitted to do certain operations the changes will revert back after it gets confirmation form the server(just fraction of seconds later)..
+
+##### 5.Full Stack Reactivity
+In meteor all the layers form database to html templates everything is even-driven i.e the application will respond based on the activities of the user..
+
+##### 6.Embrace the Ecosystem
+Meteor uses other open sources libraries like MongoDB, Handlebars etc instead of making their own, this is because when those libraries improve Meteor will also get improve and moreover the developers would get more community help when they are building applications or learning Meteor..
+
+##### 7. Simplicity Equals Productivity
+The key idea of improving the productivity is having a clean and simple API, Meteor core highly follow this principle by providing those kind of simple and beautiful APIs to build the web application..
+
