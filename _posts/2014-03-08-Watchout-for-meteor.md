@@ -4,12 +4,12 @@ title: "Watch out for Meteor...!"
 category: articles
 tags: [meteor]
 image:
-feature: meteor.png 
+  feature:  meteor.png 
 comments: true
 share: true
 ---
 
-Few months back I read a blog post ["Why meteor will kill Ruby On Rail"](http://differential.io/blog/meteor-killin-rails){:target="_blank"}  by [Josh Owens](https://plus.google.com/102580086338708965582/posts){:target="_blank"} i was so curious after reading the post..It was the time i started working on production level Rails applications..i decided to give a try and created a simple [twitter follow application](http://twitter-login.meteor.com/){:target="_blank"} within few minitues by following [Sacha Greif's](http://www.smashingmagazine.com/2013/06/13/build-app-45-minutes-meteor/){:target="_blank"} tutorial..Meteor is no way near Rails but still it has some killer features like full stack reactivity, latency compensation etc.. which would take at-least a couple of years to bring in rails core..If you are Rails guy meteor might not seem very powerful but for a javaScript dev meteor is a real gift..
+Few months back I read a blog post ["Why meteor will kill Ruby On Rail"](http://differential.io/blog/meteor-killin-rails){:target="_blank"}  by [Josh Owens](https://plus.google.com/102580086338708965582/posts){:target="_blank"} i was curious after reading the post..It was the time i started working on production level Rails applications..i decided to give a try and created a simple [twitter follow application](http://twitter-login.meteor.com/){:target="_blank"} within few minitues by following [Sacha Greif's](http://www.smashingmagazine.com/2013/06/13/build-app-45-minutes-meteor/){:target="_blank"} tutorial..Meteor is no way near Rails but still it has some killer features like full stack reactivity, latency compensation etc.. which would take at-least a couple of years to bring in rails core..If you are Rails guy meteor might not seem very powerful but for a javaScript dev meteor is a real gift..
 
 ### Meteor
 Meteor is a complete web stack built on top of Node.js for building real time web applications..The major advantage of Meteor is One language(javaScript) everywhere(both server/client)..It sits between app's database and its client and make sure that both are kept in sync...
@@ -66,7 +66,7 @@ If you are familiar with frame works like Rails or Django you probably know MVC 
 In the Meteor official <a href="http://docs.meteor.com/">documention</a> they have listed out the following <a href="http://docs.meteor.com/#sevenprinciples">7 principles</a>
 
 ##### 1.Data on the wire
-The only thing that traverse between the server and client after the initial page load in **data**.. Meteor loads all the html,css and other static assets in the initial page load after that it sends only the data to the client and let the client decide how to render the data.
+The only thing that traverse between the server and client after the initial page load is **data**.. Meteor loads all the html,css and other static assets in the initial page load after that it sends only the data to the client and let the client decide how to render the data.
 
 ##### 2.One Language
 Meteor uses only JavaScript for both client and server side operations..This can be achieved in meteor because it is built on top of NodeJs and it uses MongoDB as default database...
@@ -85,4 +85,60 @@ Meteor uses other open sources libraries like MongoDB, Handlebars etc instead of
 
 ##### 7. Simplicity Equals Productivity
 The key idea of improving the productivity is having a clean and simple API, Meteor core highly follow this principle by providing those kind of simple and beautiful APIs to build the web application..
+
+### Getting Started
+Its quite a lot of text...:D Lets get started by installing Meteor..                
+Installing meteor can't be more easier..Simply coping the below code and pasting it in your terminal will make your operating system ready for meteor development..
+
+    curl https://install.meteor.com | /bin/sh
+
+#####Check meteor version
+
+    meteor --version
+    Realease 0.7.1.2
+
+Meteor 0.7.1.2 is the current stable version and it supports GNU/Linux and Unix by default, for windows you can check the unofficial version here <a href="http://win.meteor.com/" target="_blank">win.meteor.com</a>
+
+#####Create a project
+
+    meteor create appname
+
+<figure>
+    <img src="/images/mrt.gif">
+</figure>
+
+Meteor allows you create 4 pre-build examples where you can play around and understand its basic working principles...
+
+{% highlight ruby%}
+  # to check available examples
+  meteor create --list
+
+  # create an example application
+  meteor create --example todos
+{% endhighlight%}
+
+<figure>
+  <img src ="/images/leader.gif">
+  <figcaption>
+    To checkout other examples vist 
+    <a href="https://www.meteor.com/examples" title=""> <strong>here.</strong></a>
+  </figcaption>
+</figure>
+
+
+#### Meteorite
+<a href="https://github.com/oortcloud/meteorite">Meteorite</a> is a Meteor Version Manager which is similar to RVM/Rbenv available for maintaining ruby versions for individual projects..      
+Using Meteorite we can easily maintain multiple versions of Meteor, install non-core and third party packages from <a href="https://atmosphere.meteor.com/" target="_blank"> <strong>Atmosphere</strong></a>
+
+
+##### Installing Meteorite
+
+`sudo -H npm install -g meteorite`
+
+Once Meteorite is installed we can use 'mrt' command to create projects as well as to install packages..
+
+<figure>
+  <img src ="/images/mrtinstall.gif">
+</figure>
+
 

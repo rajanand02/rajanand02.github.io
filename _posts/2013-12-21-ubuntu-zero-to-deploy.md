@@ -23,8 +23,7 @@ It was fine when i tried to hack around all the distros back in my college days 
 The first thing i always install in my fresh Ubuntu is [Terminator](https://launchpad.net/terminator)..
 Terminator is a terminal emulator that has so may cool features like multiple session in a single tab..
 <figure>
-   <a href= "http://rajanand02.github.io/images/terminator.gif">
-  <img src="/images/terminator.gif"></a>
+  <img src="/images/terminator.gif">
   <figcaption><a href="http://github.com/rajanand02" title="Terminator the awesome terminal emulator"></a>Terminator the awesome terminal-emulator.</figcaption>
 </figure>
 
