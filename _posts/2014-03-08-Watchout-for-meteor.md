@@ -9,9 +9,11 @@ comments: true
 share: true
 ---
 
-Few months back I read a blog post ["Why meteor will kill Ruby On Rail"](http://differential.io/blog/meteor-killin-rails){:target="_blank"}  by [Josh Owens](https://plus.google.com/102580086338708965582/posts){:target="_blank"} it was disturbing me so much because that was the time i started working on production level Rails applications so i gave it a try and created a simple [twitter follow application](http://twitter-login.meteor.com/){:target="_blank"} within few minitues by following [Sacha Greif's](http://www.smashingmagazine.com/2013/06/13/build-app-45-minutes-meteor/){:target="_blank"} tutorial..That was really cool i should admit that..
+Few months back I read a blog post ["Why meteor will kill Ruby On Rail"](http://differential.io/blog/meteor-killin-rails){:target="_blank"}  by [Josh Owens](https://plus.google.com/102580086338708965582/posts){:target="_blank"} it was disturbing me so much because that was the time i started working on production level Rails applications so i gave it a try and created a simple [twitter follow application](http://twitter-login.meteor.com/){:target="_blank"} within few minitues by following [Sacha Greif's](http://www.smashingmagazine.com/2013/06/13/build-app-45-minutes-meteor/){:target="_blank"} tutorial..That was really cool and mind-boggling..
 
-   I clearly know that Meteor is no way near Rails but still it has some killer features like full stack reactivity, latency compensation etc.. which would take at-least a couple of years to bring in rails core..I am not going to compare Meteor with Rails or start evangelizing it..However it is always good to learn various frameworks and use it based on the customer requirements,if you are going to build something big which involves high maintainability, Rails would be the appropriate choice without any doubts but if it is something small or a single page application in which real-time is the main criteria you can definitely go with Meteor..
+   I clearly know that Meteor is no way near Rails but still it has some killer features like full stack reactivity, latency compensation etc.. which would take at-least a couple of years to bring in rails core..I am not going to compare Meteor with Rails or start evangelizing it..However it is always good to learn various frameworks and use it based on the customer requirements..
+
+   If you are going to build something big which involves high maintainability, Rails would be the appropriate choice but if it is something small like a single page application in which real-time is the main criteria you can definitely go for Meteor..
 
 ### Meteor
 Meteor is a complete web stack built on top of Node.js for building real time web applications..It sits between app's database and its client and make sure that both are kept in sync..
@@ -67,10 +69,10 @@ If you are familiar with frame works like Rails or Django you probably know MVC 
 
 
 ### Seven Principles of Meteor
-In the Meteor official <a href="http://docs.meteor.com/">documention</a> you could find this following <a href="http://docs.meteor.com/#sevenprinciples">7 principles</a>
+In the Meteor official <a href="http://docs.meteor.com/">documention</a> you could find the following <a href="http://docs.meteor.com/#sevenprinciples">7 principles</a>
 
 ##### 1.Data on the wire
-The only thing that traverse between the server and client after the initial page load is **data**.. Meteor loads all the html,css and other static assets in the initial page load after that it sends only the data to the client and let the client decide how to render the data.
+The only thing that traverse between the server and client after the initial page load is **data**.. Meteor loads all the html,css and other static assets in the initial page load after which it sends only the data to the client and let the client decide how to render the data.
 
 ##### 2.One Language
 Meteor uses only <strong>JavaScript</strong> for both client and server side operations..This can be achieved in meteor because it is built on top of NodeJs and it uses MongoDB as default database...
@@ -88,17 +90,18 @@ In meteor all the layers form database to html templates everything is <strong>e
 Meteor uses other open sources libraries like MongoDB, Handlebars etc instead of making their own, this is because when those libraries improve Meteor will also get improve and moreover the developers would get more community help when they are building applications or learning Meteor..
 
 ##### 7. Simplicity Equals Productivity
-The key idea of improving the productivity is having a clean and simple API, Meteor core highly follow this principle by providing those kind of simple and beautiful APIs to build the web application..
+The key idea of improving the productivity is having a clean and simple API, Meteor core highly follow this principle by providing much simple and beautiful APIs to build the application..
 
 ### Getting Started
 Its quite a lot of text...:D Lets get started by installing Meteor..                
+
+##### Installation
 Installing meteor can't be more easier..Simply coping the below code and pasting it in your terminal will make your operating system ready for meteor development..
 
-`curl https://install.meteor.com | /bin/sh`
-
-#####Check meteor version
-
 {% highlight bash%}
+curl https://install.meteor.com | /bin/sh
+
+# Check meteor version
 meteor --version
 Realease 0.7.1.2
 {% endhighlight%}
@@ -107,7 +110,9 @@ Meteor 0.7.1.2 is the current stable version and it supports GNU/Linux and Unix 
 
 #####Create a project
 
-`meteor create appname`
+{% highlight bash%}
+  meteor create app_name
+{% endhighlight%}
 
 <figure>
   <img src="/images/mrt.gif">
@@ -143,7 +148,9 @@ Using Meteorite we can easily maintain multiple versions of Meteor, install non-
 ##### Installing Meteorite
 Meteorite installation is also similar to Meteor installation in which a single command is enough to do the magic..
 
-`sudo -H npm install -g meteorite`
+{% highlight bash%}
+sudo -H npm install -g meteorite
+{% endhighlight%}
 
 Once Meteorite is installed we can use `mrt` command to create projects as well as to install packages..it will act like an alias to `meteor` command..
 
@@ -155,15 +162,18 @@ Once Meteorite is installed we can use `mrt` command to create projects as well 
 </figure>
 
 ##### Packages
-Packages in Meteor is something similar to ruby gems or node packages..Adding packages to the application can be done by `meteor add package_name` command or `mrt add package_name` command if it is a third party package from Atmosphere..Installing packages can also be done manually by including it in smart.json  file and running `mrt` inside the application directory..This will create a `packages` directory and includes all the required dependencies and files of the packages..
+Packages in Meteor is something similar to ruby gems or node packages..Adding packages to the application can be done by `meteor add package_name` command or `mrt add package_name` command if it is a third party package from Atmosphere..Installing packages can also be done manually by including it in smart.json  file and running `mrt` inside the application directory..This will create a `/packages` directory and includes all the required dependencies and files of the packages..
 
 ##### Types of packages
+*  *Core Packages* - Meteor itself is a combination of various packages and those packages are called core packages..These core packages are included in every meteor applications..
 
-*  Core Packages - Meteor itself is a combination of various packages and those packages are called core packages..These core packages are included in every meteor applications..
-*  Smart Packages - Smart packages are about 42 packages created by meteor team that comes bundled with meteor..You can view these packages by `meteor list` command..
-* Atmosphere Smart Packages - These are third party packages from <a href="http://beta.atmospherejs.com/">Atmosphere</a> which are built by Meteor community..
-* Local Packages - Local packages are custom packages for the application that can be included by putting inside `/packages` directory..
-* NPM Packages - Node.js packages can also be integrated in the application by using above packages..
+*  *Smart Packages*- Smart packages are about 42 packages created by meteor team that comes bundled with meteor..You can view these packages by `meteor list` command..
+
+* *Atmosphere Smart Packages*- These are third party packages from <a href="http://beta.atmospherejs.com/">Atmosphere</a> which are built by Meteor community..
+
+* *Local Packages*- Local packages are custom packages for the application that can be included by putting inside `/packages` directory..
+
+* *NPM Packages*- Node.js packages can also be integrated in the application by using above packages..
 
 Lets include some packages to our leaderboard application..
 
@@ -177,7 +187,9 @@ Lets include some packages to our leaderboard application..
 ##### Deploying Meteor
 Meteor gives you free server space to deploy and check your application, you don't have to spend time in setting  up your server or configure heroku..This could be very useful while you are prototyping your application or creating MVP to get confirmation form clients...
 
-`meteor deploy app_name.meteor.com`
+{% highlight bash%}
+  meteor deploy app_name.meteor.com
+{% endhighlight%}
 
 <figure>
   <img src ="/images/deploy.gif">
@@ -188,7 +200,9 @@ Meteor gives you free server space to deploy and check your application, you don
 
 You can also deploy the application in your own server by bundling the app and run it as a simple node application...
 
-`meteor bundle app_name.targz`
+{% highlight ruby%}
+  meteor bundle app_name.tar.gz
+{% endhighlight%}
 
 <figure>
   <img src ="/images/bundle.gif">
@@ -197,3 +211,5 @@ You can also deploy the application in your own server by bundling the app and r
   </figcaption>
 </figure>
 
+##### Resources
+* <a href="http://yauh.de/articles/376/best-learning-resources-for-meteorjs">yet another useless homepage</a> by<a href="https://plus.google.com/+StephanHochhaus" target="_blank"> <strong>Stephan Hochhaus</strong></a> 
