@@ -4,7 +4,7 @@ logo:             profile_pic.jpg
 disqus_shortname: rajanand02
 search:           true
 #Change url to your domain. Leave localhost server or blank when working locally.
-#url:              http://rajanand02.github.io
+url:              http://rajanand02.github.io
 #baseurl:          http://rajanand02.github.io
 # Owner/author information
 owner:

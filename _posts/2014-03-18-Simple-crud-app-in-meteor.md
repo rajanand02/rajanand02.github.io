@@ -9,7 +9,9 @@ comments: true
 share: true
 ---
 
-We have seen some introduction about Meteor in the previous article now lets create a simple crud application, put the code in GitHub and deploy the app in meteor server.
+We have seen some introduction about Meteor in the previous article now lets create a simple application where user can able to *C*reat, *R*ead, *U*pdate and *D*elete contents..
+
+
 
 #### Create
 
@@ -21,13 +23,13 @@ Lets remove the default content..
     <img src ="/images/create.gif">
 </figure>
 
-we are going to use <a href="http://beta.atmospherejs.com/package/bootstrap-flatly" target="_blank"> <strong>bootstrap-flatly</strong></a> theme for ui design and CoffeeScript as template manager..
+we are going to use <a href="http://beta.atmospherejs.com/package/bootstrap-flatly" target="_blank"> <strong>bootstrap-flatly</strong></a> theme for ui and CoffeeScript as template manager..
 
 <figure>
   <img src ="/images/coffee-bootstrap.gif">
 </figure>
 
-First we can prepare our html file to render our posts then we can use our template manager to make the content reactive..
+First we can prepare our html file to render the posts then we can use our template manager to make the content reactive..
 
 
 {% highlight html %}
@@ -74,7 +76,7 @@ here we have created one input box with id **content** and one button to submit 
 </template>
 {% endhighlight %}
 
-in posts template we have created a template helper **post** to iterate through each post and render the **post** template for individual posts..  
+in posts template we have created a template helper called **post** to iterate through each post in the database collection and render the **post** template..  
 
 #### post Template
 {% highlight html %}
@@ -138,11 +140,13 @@ Our final posts.html file would be like this.
 {% endhighlight%}
 <small> check the code in <a href="https://github.com/rajanand02/meteor-crud/blob/master/posts.html" target="_blank">github</a></small>
 
-now fire up the meteor server by `mrt` command inside your project root directory..
+now fire up the meteor server by executing `mrt` command inside `/meteor-crud` directory..
 if you have done everything correctly you should see something similar to this in your browser
 
 <figure>
+  <a href="http://rajanand02.github.io/images/posts_page.png" target="_blank">
   <img src ="/images/posts_page.png">
+  </a>
 </figure>
 
 Lets add a bootstrap navigation bar before our *postForm* template to make the app more elegant..
@@ -179,7 +183,7 @@ Lets add a bootstrap navigation bar before our *postForm* template to make the a
 now our posts.html file should be like this..
 
 <figure>
-  <a href="">
+  <a href="http://rajanand02.github.io/images/post_page2.png" target="_blank">
     <img src ="/images/posts_page2.png">
   </a>
 </figure>
@@ -195,7 +199,9 @@ if Meteor.isClient
   ...
 {% endhighlight%}
 
-we just created a MongoDB collection called **post** using the *Meteor.Collection* method..Note that this line of code should be outside our `if Meteor.isClient` block because this collection should be available at both client and server..
+we just created a MongoDB collection called **post** using the *Meteor.Collection* method..
+
+<small>**Note:** This line of code should be outside the `if Meteor.isClient` block because **post** collection should be available at both client and server..</small>
 
 #### Create
 
@@ -207,20 +213,18 @@ we just created a MongoDB collection called **post** using the *Meteor.Collectio
       data.value = ""
 {% endhighlight%}
 
-we are creating a events method for postForm template and a small click function on the button object..
-
-Whenever the button is clicked we are going find the element with id **"content"** and store its value inside the variable called **data** and then we are inserting the **data** into our **posts** collection using `Post.insert` MongoDB command and finally we changing the value of **data** to null to get the next item..
+Whenever the button inside our *postForm* template is clicked, we are going find the element with id **"content"** and store its value inside the variable called **data** and then we are inserting the **data** into our **posts** collection using `Post.insert` MongoDB command and finally we are setting the value of **data** to null to get the next item..
 
 Now we can able to create posts..
 <figure>
   <img src ="/images/mongo.gif">
 </figure>
 
-The posts doesn't show up yet in our page but we could see the post inside the mongo console by running `meteor mongo` inside your project directory..
+The posts doesn't show up yet in our page but we could see the post inside the mongo console by running `meteor mongo` inside `/meteor-crud` directory..
 
-<small>Note: your meteor server should be running while opening mongo console</small>
+<small>**Note:** your meteor server should be running while opening mongo console</small>
 
-Now lets make the post available in our page..
+Now lets make the posts available in our page..
 
 #### Read
 {% highlight ruby%}
@@ -228,7 +232,7 @@ Now lets make the post available in our page..
     Post.find()
 {% endhighlight%}
 
-We are creating a template helper called **post** that will return the data from `Post.find()`..This **post** helpers is used inside the **posts** template to iterate through each posts..
+We are creating a template helper called **post** that will return the data from `Post.find()`..The `Post.find()`  Mongo query will return a <a href="http://docs.mongodb.org/manual/core/read-operations-introduction/" target="_blank">*cursor object*</a> that has  all the posts form the **post** collection. This **post** helpers is used inside the **posts** template to iterate through each posts..
 
 {% highlight html %}
 <template name="posts">
@@ -238,12 +242,12 @@ We are creating a template helper called **post** that will return the data from
 </template>
 {% endhighlight %}
 
-If we switch to the browser we could see all the posts
+now all the posts are available in our html template..
 <figure>
   <img src ="/images/allposts.png">
 </figure>
 
-We have completed half of the application now lets add delete function in our template manager..
+We have completed *C* and *R* in *CRUD*, now lets add *D*elete function in our template manager..
 
 #### Delete
 
@@ -254,15 +258,16 @@ We have completed half of the application now lets add delete function in our te
       Post.remove _id: post._id
 {% endhighlight%}
 
-Whenever the button with id **"delete"** is clicked we are finding the target element and storing it in **post** variable and then we are passing its id to remove the post from the collection using `Post.remove` 
-`_id` is MongoDB unique id for each element in the collection..
+Whenever the button with id **"delete"** is clicked, we are finding the target element and storing it in **post** variable and then we are passing its id to remove the post from the collection using `Post.remove` Mongo query..
+
+`_id` is MongoDB unique id for each element in the MongoDB collection..
 <figure>
   <img src ="/images/delete.gif">
 </figure>
 
 #### Update
 
-Update part is bit tricky 
+Update part is bit tricker than other three operations.. 
 {% highlight ruby%}
   Template.post.editing = ->
     Session.get "target" + @_id
@@ -294,11 +299,12 @@ Here we are getting the session variable with a key **target** and its value is 
     "click #edit": (e, t) ->
       Session.set "target" + t.data._id, true
 {% endhighlight%}
+
+In post template whenever the span with id **"edit"** is clicked we are setting the Session variable to *true* thereby the **"editing"** helper is set to true..As per our html template when **editing** state is enabled, input box would appear instead of span..
 <figure>
   <img src ="/images/input-box.gif">
 </figure>
 
-In post template whenever the span with id **"edit"** is clicked we are setting the Session variable *true* thereby the **"editing"** helper is set to true..As per our html template when **editing** state is enabled, input box would appear instead of span..
 
 {% highlight ruby%}
   #3 updating the post on hitting enter
@@ -308,7 +314,7 @@ In post template whenever the span with id **"edit"** is clicked we are setting 
       Post.update {_id: post._id}, { $set: content: e.currentTarget.value}
 {% endhighlight%}
 
-Here we are again finding the target element storing it in *post* variable and using its id and value to update the appropriate postwhenever enter key is pressed inside the input box..(<small> keycode for enter key is 13</small>)
+Here we are again finding the target element, storing it in *post* variable and using its id and value to update the appropriate post whenever enter key is pressed inside the input box..(<small> keycode for enter key is 13</small>)
 
 MongoDB update query takes two argument 1. the *id* of the target element and 2. *value* to be updated..
 
@@ -350,7 +356,7 @@ This would be our final post.coffee template manager..
 {% endhighlight%}
 <small> Check the code in <a href="https://github.com/rajanand02/meteor-crud/blob/master/posts.coffee">GitHub</a></small>
 
-Since we are using CoffeeScript we don't have to write *return* statements and we can also ignore brackets/semicolons etc..
+Since we are using CoffeeScript we don't have to write *return* statements and we can also ignore brackets, semicolons etc..
 
 Now our code is pretty clean and it is ready to do **CRUD** operations..
 <figure>
@@ -367,6 +373,9 @@ Its time to deploy our app in remote server and see the code in action.. :D
 
 <figure>
   <img src ="/images/crud-server.gif">
+  <figcaption>
+  Checkout the app in <a href="http://meteor-crud.meteor.com" target="_blank">meteor <strong>server</strong></a> and 
+  get the code from <a href="https://github.com/rajanand02/meteor-crud/" title="" target="_blank"><strong>GitHub</strong></a>
+  </figcaption>
 </figure>
-
-
+As you can see when we create a post in one browser it is automatically gets updated in other browsers which are connected to the database..We didn't write a single piece of code to make the content reactive, it is all done by meteor by default..
