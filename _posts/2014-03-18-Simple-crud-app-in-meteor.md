@@ -4,7 +4,7 @@ title: "Simple Crud app in Meteor"
 category: articles
 tags: [meteor]
 image: 
-  feature: meteor.png
+  feature: CRUD.png
 comments: true
 share: true
 ---
