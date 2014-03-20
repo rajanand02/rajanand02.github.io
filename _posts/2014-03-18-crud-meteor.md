@@ -187,7 +187,7 @@ now our posts.html file should be like this..
 Its time to make our static html template reactive using our posts.coffee template manager ..
 
 First lets create a MongoDB collection to hold the posts in the database..
-{% highlight javascript %}
+{% highlight ruby %}
 Post = new Meteor.Collection "post"
 
 if Meteor.isClient
@@ -199,7 +199,7 @@ we just created a MongoDB collection called **post** using the *Meteor.Collectio
 
 #### Create
 
-{% highlight javascript%}
+{% highlight ruby%}
   Template.postForm.events 
     "click button": (e, t) ->
       data = t.find "#content"
@@ -221,9 +221,152 @@ The posts doesn't show up yet in our page but we could see the post inside the m
 <small>Note: your meteor server should be running while opening mongo console</small>
 
 Now lets make the post available in our page..
-{% highlight javascript%}
+
+#### Read
+{% highlight ruby%}
   Template.posts.post = ->
     Post.find()
 {% endhighlight%}
 
 We are creating a template helper called **post** that will return the data from `Post.find()`..This **post** helpers is used inside the **posts** template to iterate through each posts..
+
+{% highlight html %}
+<template name="posts">
+  {{"{{#each post"}}}}
+    {{"{{> post"}}}}
+  {{"{{/each"}}}}
+</template>
+{% endhighlight %}
+
+If we switch to the browser we could see all the posts
+<figure>
+  <img src ="/images/allposts.png">
+</figure>
+
+We have completed half of the application now lets add delete function in our template manager..
+
+#### Delete
+
+{% highlight ruby%}
+  Template.post.events
+    "click #delete": (e, t) ->
+      post = Post.findOne(t.data)
+      Post.remove _id: post._id
+{% endhighlight%}
+
+Whenever the button with id **"delete"** is clicked we are finding the target element and storing it in **post** variable and then we are passing its id to remove the post from the collection using `Post.remove` 
+`_id` is MongoDB unique id for each element in the collection..
+<figure>
+  <img src ="/images/delete.gif">
+</figure>
+
+#### Update
+
+Update part is bit tricky 
+{% highlight ruby%}
+  Template.post.editing = ->
+    Session.get "target" + @_id
+
+  Template.post.events
+    "click #edit": (e, t) ->
+      Session.set "target" + t.data._id, true
+
+    "keypress input": (e, t) ->
+      if e.keyCode is 13
+        post = Post.findOne(t.data)
+        Post.update {_id: post._id}, { $set: content: e.currentTarget.value}
+        Session.set "target" + t.data._id, false
+{% endhighlight%}
+
+We can split this into three sections
+
+{% highlight ruby%}
+  #1 setting the editing state
+  Template.post.editing = ->
+    Session.get "target" + @_id
+{% endhighlight%}
+
+Here we are getting the session variable with a key **target** and its value is mongodb **id** field..This will return either true or false based on the session value it gets..
+
+{% highlight ruby%}
+  #2 change span to input box
+  Template.post.events
+    "click #edit": (e, t) ->
+      Session.set "target" + t.data._id, true
+{% endhighlight%}
+<figure>
+  <img src ="/images/input-box.gif">
+</figure>
+
+In post template whenever the span with id **"edit"** is clicked we are setting the Session variable *true* thereby the **"editing"** helper is set to true..As per our html template when **editing** state is enabled, input box would appear instead of span..
+
+{% highlight ruby%}
+  #3 updating the post on hitting enter
+  "keypress input": (e, t) ->
+    if e.keyCode is 13
+      post = Post.findOne(t.data)
+      Post.update {_id: post._id}, { $set: content: e.currentTarget.value}
+{% endhighlight%}
+
+Here we are again finding the target element storing it in *post* variable and using its id and value to update the appropriate postwhenever enter key is pressed inside the input box..(<small> keycode for enter key is 13</small>)
+
+MongoDB update query takes two argument 1. the *id* of the target element and 2. *value* to be updated..
+
+MongoDB `$set` operator is used to update the collection..
+
+This would be our final post.coffee template manager..
+{% highlight ruby%}
+  Post = new Meteor.Collection("post")
+  if Meteor.isClient
+    # create
+    Template.postForm.events 
+      "click button": (e, t) ->
+        data = t.find "#content"
+        Post.insert content: data.value
+        data.value = ""
+    
+    # Read
+    Template.posts.post = ->
+      Post.find()
+
+    # update
+    Template.post.editing = ->
+      Session.get "target" + @_id
+    
+    Template.post.events
+      "click #edit": (e, t) ->
+        Session.set "target" + t.data._id, true
+
+      "keypress input": (e, t) ->
+        if e.keyCode is 13
+          post = Post.findOne(t.data)
+          Post.update {_id: post._id}, { $set: content: e.currentTarget.value}
+          Session.set "target" + t.data._id, false
+    
+      # delete
+      "click #delete": (e, t) ->
+        post = Post.findOne(t.data)
+        Post.remove _id: post._id
+{% endhighlight%}
+<small> Check the code in <a href="https://github.com/rajanand02/meteor-crud/blob/master/posts.coffee">GitHub</a></small>
+
+Since we are using CoffeeScript we don't have to write *return* statements and we can also ignore brackets/semicolons etc..
+
+Now our code is pretty clean and it is ready to do **CRUD** operations..
+<figure>
+  <img src ="/images/crud-final.gif">
+</figure>
+
+Its time to deploy our app in remote server and see the code in action.. :D
+{% highlight bash%}
+  mrt deploy meteor-crud.meteor.com 
+  Deploying to meteor-crud.meteor.com. Bundling...
+  Uploading...
+  Now serving at meteor-crud.meteor.com
+{% endhighlight %}
+
+<figure>
+  <img src ="/images/crud-server.gif">
+</figure>
+
+
