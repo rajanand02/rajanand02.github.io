@@ -184,4 +184,46 @@ now our posts.html file should be like this..
   </a>
 </figure>
 
+Its time to make our static html template reactive using our posts.coffee template manager ..
 
+First lets create a MongoDB collection to hold the posts in the database..
+{% highlight javascript %}
+Post = new Meteor.Collection "post"
+
+if Meteor.isClient
+  ...
+  ...
+{% endhighlight%}
+
+we just created a MongoDB collection called **post** using the *Meteor.Collection* method..Note that this line of code should be outside our `if Meteor.isClient` block because this collection should be available at both client and server..
+
+#### Create
+
+{% highlight javascript%}
+  Template.postForm.events 
+    "click button": (e, t) ->
+      data = t.find "#content"
+      Post.insert content: data.value
+      data.value = ""
+{% endhighlight%}
+
+we are creating a events method for postForm template and a small click function on the button object..
+
+Whenever the button is clicked we are going find the element with id **"content"** and store its value inside the variable called **data** and then we are inserting the **data** into our **posts** collection using `Post.insert` MongoDB command and finally we changing the value of **data** to null to get the next item..
+
+Now we can able to create posts..
+<figure>
+  <img src ="/images/mongo.gif">
+</figure>
+
+The posts doesn't show up yet in our page but we could see the post inside the mongo console by running `meteor mongo` inside your project directory..
+
+<small>Note: your meteor server should be running while opening mongo console</small>
+
+Now lets make the post available in our page..
+{% highlight javascript%}
+  Template.posts.post = ->
+    Post.find()
+{% endhighlight%}
+
+We are creating a template helper called **post** that will return the data from `Post.find()`..This **post** helpers is used inside the **posts** template to iterate through each posts..
