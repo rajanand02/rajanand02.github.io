@@ -1,10 +1,10 @@
 ---
 layout: post
 title: "Ubuntu-Zero To Deploy"
-description: "configure ubuntu from scratch"
+description: "Configure ubuntu from scratch "
 series: ubuntu-zero-to-deploy
 category: articles
-tags: [Ubuntu, Terminator]
+tags: [Ubuntu, Terminator, Terminator-Solarized]
 image:
   feature: ubuntu.png
 comments: true

@@ -2,7 +2,8 @@
 layout: post
 title: "Simple Crud app in Meteor"
 category: articles
-tags: [meteor]
+tags: [meteor,curd in meteor,meteor tutorial,meteor coffeescript]
+description: "Crud in Meteor using coffeescript and twitter-bootstrap"
 image: 
   feature: CRUD.png
 comments: true

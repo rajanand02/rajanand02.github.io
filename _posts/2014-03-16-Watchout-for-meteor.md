@@ -2,7 +2,8 @@
 layout: post
 title: "Watch out for Meteor...!"
 category: articles
-tags: [meteor]
+tags: [meteor, meteor tutorial, meteor introduction]
+description: "Meteor detailed introduction with mvvm architecture and creating first meteor app"
 image:
   feature:  meteor1.png 
 comments: true
