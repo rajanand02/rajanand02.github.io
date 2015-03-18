@@ -10,11 +10,11 @@ comments: true
 share: true
 ---
 
-Few months back I read a blog post ["Why meteor will kill Ruby On Rail"](http://differential.io/blog/meteor-killin-rails){:target="_blank"}  by [Josh Owens](https://plus.google.com/102580086338708965582/posts){:target="_blank"} it was bothering me so much because that was the time i started working on production level Rails applications so i gave it a try and created a simple [twitter follow application](http://twitter-login.meteor.com/){:target="_blank"} within few minitues by following [Sacha Greif's](http://www.smashingmagazine.com/2013/06/13/build-app-45-minutes-meteor/){:target="_blank"} tutorial..That was really cool and mind-boggling..:D
+<!--Few months back I read a blog post ["Why meteor will kill Ruby On Rail"](http://differential.io/blog/meteor-killin-rails){:target="_blank"}  by [Josh Owens](https://plus.google.com/102580086338708965582/posts){:target="_blank"} it was bothering me so much because that was the time i started working on production level Rails applications so i gave it a try and created a simple [twitter follow application](http://twitter-login.meteor.com/){:target="_blank"} within few minitues by following [Sacha Greif's](http://www.smashingmagazine.com/2013/06/13/build-app-45-minutes-meteor/){:target="_blank"} tutorial..That was really cool and mind-boggling..:D-->
 
-   I clearly know that Meteor is no way near Rails but still it has some killer features like full stack reactivity, latency compensation etc.. which would take at-least a couple of years to bring in rails core..I am not going to compare Meteor with Rails or start evangelizing it..However it is always good to learn various frameworks and use it based on your requirements..
+   <!--I clearly know that Meteor is no way near Rails but still it has some killer features like full stack reactivity, latency compensation etc.. which would take at-least a couple of years to bring in rails core..I am not going to compare Meteor with Rails or start evangelizing it..However it is always good to learn various frameworks and use it based on your requirements..-->
 
-   If you are going to build something big which involves high maintainability, Rails would be the appropriate choice but if it is something small like a single page application in which real-time is the main criteria you can definitely go for Meteor..
+   <!--If you are going to build something big which involves high maintainability, Rails would be the appropriate choice but if it is something small like a single page application in which real-time is the main criteria you can definitely go for Meteor..-->
 
 ### Meteor
 Meteor is a complete web stack built on top of Node.js for building real time web applications..It sits between app's database and its client and make sure that both are kept in sync..
@@ -22,6 +22,7 @@ Meteor is a complete web stack built on top of Node.js for building real time we
 ### Why Meteor....?!
 
 * Meteor is easy to learn...:D
+* It is an  <a href="http://isomorphic.net/javascript" target="_blank"> isomorphic Javascript</a> platform.
 * Meteor make it possible to create MVP(Minimum Viable Product) up and running in matter of hours..
 * No need to learn a new language if you have some prior experience with JavaScript..
 * It follow Model View View-Modal pattern(not exactly)..
