@@ -40,7 +40,7 @@ In Client/Server model the server performs almost all the operations on data and
 #### MVC(Model View Controller)
 If you are familiar with frame works like Rails or Django you probably know MVC pattern..In MVC
 
-* Model - Contains all the data. 
+* Model - Handles all the data. 
 * Controller - talks with model, perform the logic/actions and prepare the data to be displayed.
 * View - display the content and report back to the controller when something happens on the screen(button click, form submission etc..)
 

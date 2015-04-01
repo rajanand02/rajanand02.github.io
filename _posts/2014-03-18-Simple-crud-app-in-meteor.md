@@ -24,7 +24,7 @@ Lets remove the default content..
     <img src ="/images/create.gif">
 </figure>
 
-we are going to use <a href="http://beta.atmospherejs.com/package/bootstrap-flatly" target="_blank"> <strong>bootstrap-flatly</strong></a> theme for ui and CoffeeScript as template manager..
+we are going to use <a href="http://beta.atmospherejs.com/package/bootstrap-flatly" target="_blank"> <strong>bootstrap-flatly</strong></a> theme for ui and CoffeeScript to write template manager..
 
 <figure>
   <img src ="/images/coffee-bootstrap.gif">
