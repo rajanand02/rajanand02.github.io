@@ -202,7 +202,7 @@ if Meteor.isClient
 
 we just created a MongoDB collection called **post** using the *Meteor.Collection* method..
 
-<small>**Note:** This line of code should be outside the `if Meteor.isClient` block and we should use '@' to make it global so that the <strong>post<strong> collection would be available to both client and server..</small>
+<small>**Note:** This line of code should be outside the `if Meteor.isClient` block and we should use '@' to make it global so that the <strong>post</strong> collection would be available to both client and server..</small>
 
 #### Create
 
