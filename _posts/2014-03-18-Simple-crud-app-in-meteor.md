@@ -3,14 +3,14 @@ layout: post
 title: "Simple Crud app in Meteor"
 category: articles
 tags: [meteor,curd in meteor,meteor tutorial,meteor coffeescript]
-description: "Crud in Meteor using coffeescript and twitter-bootstrap"
+description: "Crud in Meteor using CoffeeScript and twitter-bootstrap"
 image: 
   feature: CRUD.png
 comments: true
 share: true
 ---
 
-We have seen some introduction about Meteor in the previous article now lets create a simple application where user can able to *C*reat, *R*ead, *U*pdate and *D*elete contents..
+We have seen some introduction about Meteor in the previous article now let's create a simple application where user can able to *C*reat, *R*ead, *U*pdate and *D*elete contents..
 
 
 
@@ -30,7 +30,7 @@ we are going to use <a href="http://beta.atmospherejs.com/package/bootstrap-flat
   <img src ="/images/coffee-bootstrap.gif">
 </figure>
 
-First we can prepare our html file to render the posts then we can use our template manager to make the content reactive..
+First we can prepare our HTML file to render the posts then we can use our template manager to make the content reactive..
 
 
 {% highlight html %}
@@ -92,7 +92,7 @@ in posts template we have created a template helper called **post** to iterate t
     {{"{{/if"}}}}
 </template>
 {% endhighlight %}
-in post template we have created a simple state called **editing** where user is editing the content of the post..
+in post template we have created a simple state called **editing** where the user is editing the content of the post..
 
 if editing is set to true we are going to display an input box to change the content, otherwise a list of posts with a delete button.
 
@@ -150,7 +150,7 @@ if you have done everything correctly you should see something similar to this i
   </a>
 </figure>
 
-Lets add a bootstrap navigation bar before our *postForm* template to make the app more elegant..
+Let's add a bootstrap navigation bar before our *postForm* template to make the app more elegant..
 
 ##### navbar
 
@@ -191,9 +191,9 @@ now our posts.html file should be like this..
 
 Its time to make our static html template reactive using our posts.coffee template manager ..
 
-First lets create a MongoDB collection to hold the posts in the database..
+First let's create a MongoDB collection to hold the posts in the database..
 {% highlight ruby %}
-Post = new Meteor.Collection "post"
+@Post = new Meteor.Collection "post"
 
 if Meteor.isClient
   ...
@@ -202,7 +202,7 @@ if Meteor.isClient
 
 we just created a MongoDB collection called **post** using the *Meteor.Collection* method..
 
-<small>**Note:** This line of code should be outside the `if Meteor.isClient` block because **post** collection should be available at both client and server..</small>
+<small>**Note:** This line of code should be outside the `if Meteor.isClient` block and we should use '@' to make it global so that the <strong>post<strong> collection would be available to both client and server..</small>
 
 #### Create
 
@@ -323,7 +323,7 @@ MongoDB `$set` operator is used to update the collection..
 
 This would be our final post.coffee template manager..
 {% highlight ruby%}
-  Post = new Meteor.Collection("post")
+  @Post = new Meteor.Collection("post")
   if Meteor.isClient
     # create
     Template.postForm.events 
