@@ -8,21 +8,21 @@
 
 {% if site.owner.twitter %}<!-- Twitter Cards -->
 {% if page.image.feature %}<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://hacktivist.in/images/blog_og.png">
+<meta name="twitter:image" content="http://rajannd02.github.io/images/blog_og.png">
 {% else %}<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://hacktivist.in/images/blog_og.png">{% endif %}
+<meta name="twitter:image" content="http://rajannd02.github.io/images/blog_og.png">{% endif %}
 <meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
 <meta name="twitter:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
 <meta name="twitter:creator" content="@{{ site.owner.twitter }}">{% endif %}
 
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://hacktivist.in/images/blog_og.png">
+<meta property="og:image" content="http://rajannd02.github.io/images/blog_og.png">
 <meta property="og:type" content="website">
 <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
 <meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
 <meta property="og:url" content="http://hacktivist.in">
-<meta property="og:site_name" content="{{ site.title }} | Blog">
+<meta property="og:site_name" content="{{ site.title }}">
 
 {% if site.google_verify %}<meta name="google-site-verification" content="{{ site.google_verify }}">{% endif %}
 {% if site.bing_verify %}<meta name="msvalidate.01" content="{{ site.bing_verify }}">{% endif %}
