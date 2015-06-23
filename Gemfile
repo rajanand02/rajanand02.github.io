@@ -7,6 +7,7 @@ gem 'rake'
 gem 'thor'
 gem 'activesupport'
 gem 'stringex'
+gem 'jekyll-redirect-from'
 group :development do
   gem 'guard'
   gem 'guard-livereload', require: false
