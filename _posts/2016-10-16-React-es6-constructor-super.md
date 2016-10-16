@@ -3,7 +3,7 @@ layout: post
 title: "React ES6 Constructor and super keyword"
 category: articles
 tags: [React, ES6, Constructor, super, props]
-description: "React ES6 Constructor and super keyword"
+description: "Understanding React ES6 constructor and super keyword, difference between super() and super(props)"
 comments: true
 share: true
 ---
