@@ -1,5 +1,5 @@
 title:            Raj Anand
-description:      Meteorite, Rubyist, Hacktivist, Activist &  Free Software Evangelist.
+description:      Polyglot dev, JS Fanboy, Hacktivist, Activist and Free Software Evangelist.
 logo:             profile_pic.jpg
 disqus_shortname: rajanand02
 search:           true
@@ -56,7 +56,7 @@ kramdown:
   footnote_nr: 1
   entity_output: as_char
   toc_levels: 1..6
-  use_coderay: false
+  enable_coderay: false
 
   coderay:
     coderay_line_numbers: 
